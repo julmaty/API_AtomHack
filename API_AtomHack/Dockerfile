@@ -8,7 +8,7 @@ EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
-WORKDIR /app
+WORKDIR /app/publish
 RUN dotnet dev-certs https --clean
 RUN dotnet dev-certs https -ep API_AtomHack.pfx  -p crypticpassword
 WORKDIR /src
