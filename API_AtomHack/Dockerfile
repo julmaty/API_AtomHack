@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /app
 RUN dotnet dev-certs https --clean
-RUN dotnet dev-certs https -ep ./WebApplication1.pfx  -p crypticpassword
+RUN dotnet dev-certs https -ep API_AtomHack.pfx  -p crypticpassword
 WORKDIR /src
 COPY ["API_AtomHack/API_AtomHack.csproj", "API_AtomHack/"]
 RUN dotnet restore "./API_AtomHack/API_AtomHack.csproj"
@@ -25,4 +25,6 @@ RUN dotnet publish "./API_AtomHack.csproj" -c $BUILD_CONFIGURATION -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path=API_AtomHack.pfx
 ENTRYPOINT ["dotnet", "API_AtomHack.dll"]
