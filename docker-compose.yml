@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  api_atomhack:
+    image: ${DOCKER_REGISTRY-}apiatomhack
+    build:
+      context: .
+      dockerfile: API_AtomHack/Dockerfile

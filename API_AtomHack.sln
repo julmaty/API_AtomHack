@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_AtomHack", "API_AtomHack\API_AtomHack.csproj", "{D2E58755-2760-4F76-816A-729841CAC75B}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{303A102E-C1F2-45C9-8A6F-B4F551C3F924}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D2E58755-2760-4F76-816A-729841CAC75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2E58755-2760-4F76-816A-729841CAC75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2E58755-2760-4F76-816A-729841CAC75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{303A102E-C1F2-45C9-8A6F-B4F551C3F924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303A102E-C1F2-45C9-8A6F-B4F551C3F924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303A102E-C1F2-45C9-8A6F-B4F551C3F924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303A102E-C1F2-45C9-8A6F-B4F551C3F924}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
