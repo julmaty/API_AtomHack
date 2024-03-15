@@ -25,6 +25,4 @@ RUN dotnet publish "./API_AtomHack.csproj" -c $BUILD_CONFIGURATION -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
-ENV ASPNETCORE_Kestrel__Certificates__Default__Path=API_AtomHack.pfx
 ENTRYPOINT ["dotnet", "API_AtomHack.dll"]
