@@ -25,4 +25,7 @@ RUN dotnet publish "./API_AtomHack.csproj" -c $BUILD_CONFIGURATION -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+USER root
+RUN chmod og+r API_AtomHack.pfx
+USER app
 ENTRYPOINT ["dotnet", "API_AtomHack.dll"]
