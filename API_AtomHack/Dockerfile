@@ -8,9 +8,9 @@ EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
-#WORKDIR /app/publish
-#RUN dotnet dev-certs https --clean
-#RUN dotnet dev-certs https -ep API_AtomHack.pfx  -p crypticpassword
+WORKDIR /app/publish
+RUN dotnet dev-certs https --clean
+RUN dotnet dev-certs https -ep API_AtomHack.pfx  -p crypticpassword
 WORKDIR /src
 COPY ["API_AtomHack/API_AtomHack.csproj", "API_AtomHack/"]
 RUN dotnet restore "./API_AtomHack/API_AtomHack.csproj"
@@ -25,7 +25,7 @@ RUN dotnet publish "./API_AtomHack.csproj" -c $BUILD_CONFIGURATION -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-#USER root
-#RUN chmod og+r API_AtomHack.pfx
-#SER app
+USER root
+RUN chmod og+r API_AtomHack.pfx
+USER app
 ENTRYPOINT ["dotnet", "API_AtomHack.dll"]

@@ -25,16 +25,16 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-     #- ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
-     #- ASPNETCORE_Kestrel__Certificates__Default__Path=API_AtomHack.pfx 
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=API_AtomHack.pfx 
     depends_on: 
       dockermysql:
          condition: service_healthy
     ports:
       - 5000:8080
-   #volumes:
-     #- ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-     #- ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
   proxy:
     image: nginx:latest
     depends_on: 
