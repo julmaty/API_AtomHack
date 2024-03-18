@@ -14,7 +14,12 @@ services:
     volumes:
       - /usr/mysql:/var/lib/mysql
       #- ./API_AtomHack/Migration.sql:/docker-entrypoint-initdb.d/1.sql
-
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 10
   api_atomhack:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -23,7 +28,8 @@ services:
      #- ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
      #- ASPNETCORE_Kestrel__Certificates__Default__Path=API_AtomHack.pfx 
     depends_on: 
-      - dockermysql
+      dockermysql:
+         condition: service_healthy
     ports:
       - 5000:8080
    #volumes:
