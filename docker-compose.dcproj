@@ -6,7 +6,7 @@
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>303a102e-c1f2-45c9-8a6f-b4f551c3f924</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/weatherforecast</DockerServiceUrl>
+    <DockerServiceUrl>http://localhost/weatherforecast</DockerServiceUrl>
     <DockerServiceName>api_atomhack</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
