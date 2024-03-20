@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API_AtomHack
+namespace API_AtomHack.Model
 {
     public class File
     {
@@ -13,5 +13,5 @@ namespace API_AtomHack
         public string Name { get; set; }
         public int messageId { get; set; }
     }
-        
+
 }

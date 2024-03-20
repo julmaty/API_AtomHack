@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API_AtomHack
+namespace API_AtomHack.Model
 {
     public class Message
     {
@@ -14,8 +14,8 @@ namespace API_AtomHack
         public string? Response { get; set; }
 
         public int? UserId { get; set; }
-        bool AI { get; set; }
+        public bool AI { get; set; }
         public DateTime DataCreated { get; set; }
-        
+
     }
 }

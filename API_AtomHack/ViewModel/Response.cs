@@ -1,4 +1,4 @@
-﻿namespace API_AtomHack
+﻿namespace API_AtomHack.ViewModel
 {
     public class Response
     {

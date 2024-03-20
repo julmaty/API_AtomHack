@@ -1,6 +1,7 @@
 using API_AtomHack;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using QuartzScheduler;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(co
 //builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=applicationdb;"));
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<EmailService>();
 
 var app = builder.Build();
 

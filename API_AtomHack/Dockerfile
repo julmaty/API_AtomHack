@@ -27,5 +27,10 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 USER root
 RUN chmod og+r API_AtomHack.pfx
+WORKDIR /app/wwwroot
+RUN chmod 777 files -R
+RUN chown www-data files -R
+RUN chgrp www-data files -R
 USER app
+WORKDIR /app
 ENTRYPOINT ["dotnet", "API_AtomHack.dll"]

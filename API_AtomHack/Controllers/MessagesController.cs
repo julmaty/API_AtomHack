@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using API_AtomHack;
 using Newtonsoft.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Newtonsoft.Json.Linq;
+using API_AtomHack.Model;
+using API_AtomHack.ViewModel;
 
 namespace API_AtomHack.Controllers
 {
@@ -31,53 +32,8 @@ namespace API_AtomHack.Controllers
             return await _context.Messages.ToListAsync();
         }
 
-        // GET: api/Messages/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Message>> GetMessage(int id)
-        {
-            var message = await _context.Messages.FindAsync(id);
 
-            if (message == null)
-            {
-                return NotFound();
-            }
-
-            return message;
-        }
-
-        // PUT: api/Messages/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutMessage(int id, Message message)
-        {
-            if (id != message.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(message).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MessageExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Messages
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPost]
         public async Task<ActionResult<string>> PostMessage(Request request)
         {
@@ -92,43 +48,27 @@ namespace API_AtomHack.Controllers
                     requestMessage = (string)request.requestMessage
                 };
 
-                var response = await client.PostAsJsonAsync("http://127.0.0.1:8080/getResponseFromTheModel", obj);
+                var response = await client.PostAsJsonAsync("http://158.160.44.53/getResponseFromTheModel", obj);
 
                 responseString = await response.Content.ReadAsStringAsync();
                 responseString = System.Text.RegularExpressions.Regex.Unescape(responseString);
 
             }
+            var user = await _context.Users.FindAsync(request.UserId);
             var message = new Message { };
             message.Content = request.requestMessage;
             message.DataCreated = DateTime.Now;
+            message.Response = responseString;
+            message.AI = true;
+            message.UserId = user.Id;
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
-            var userHistory = new userHistory { Case = 5, messageId= (int)message.Id  };
-            
+            var userHistory = new userHistory { Case = 5, messageId= (int)message.Id, UserId=user.Id, DateTime=DateTime.Now  };
+            _context.userHistories.Add(userHistory);
+
             await _context.SaveChangesAsync();
 
             return responseString;
-        }
-
-        // DELETE: api/Messages/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMessage(int id)
-        {
-            var message = await _context.Messages.FindAsync(id);
-            if (message == null)
-            {
-                return NotFound();
-            }
-
-            _context.Messages.Remove(message);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool MessageExists(int id)
-        {
-            return _context.Messages.Any(e => e.Id == id);
         }
     }
 }
