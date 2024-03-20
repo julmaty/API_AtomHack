@@ -1,0 +1,13 @@
+﻿namespace API_AtomHack
+{
+    public class userHistory
+    {
+        public int Id { get; set; }
+        public int? UserId { get; set; }
+        public int Case { get; set; }
+        public int ColonyId { get; set; }
+        public int SystemId { get; set; }
+        public int messageId { get; set; }
+        
+    }
+}
