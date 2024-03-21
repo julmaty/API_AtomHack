@@ -15,6 +15,8 @@ namespace API_AtomHack
         public DbSet<File1> Files { get; set; } = null!;
         public DbSet<Colony> Colonies { get; set; } = null!;
         public DbSet<System> Systems { get; set; } = null!;
+        public DbSet<Access> Access { get; set; } = null!;
+        public DbSet<Documentation> Documentations { get; set; } = null!;
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
@@ -32,6 +34,30 @@ namespace API_AtomHack
             new System { Id = 2, Name = "IMS 4.0" },
             new System { Id = 3, Name = "MDP 2.0" },
             new System { Id = 4, Name = "UTS" });
+
+            modelBuilder.Entity<Access>().HasData(
+            new Access { Id = 1, FileName = "1.docx", ColonyId = 1, SystemId = 1 },
+            new Access { Id = 2, FileName = "1.docx", ColonyId = 1, SystemId = 2 },
+            new Access { Id = 3, FileName = "1.docx", ColonyId = 1, SystemId = 3 },
+            new Access { Id = 4, FileName = "1.docx", ColonyId = 1, SystemId = 4 },
+            new Access { Id = 5, FileName = "1.docx", ColonyId = 2, SystemId = 3 },
+            new Access { Id = 6, FileName = "1.docx", ColonyId = 2, SystemId = 4 },
+            new Access { Id = 7, FileName = "1.docx", ColonyId = 3, SystemId = 1 },
+            new Access { Id = 8, FileName = "1.docx", ColonyId = 3, SystemId = 2 },
+            new Access { Id = 9, FileName = "1.docx", ColonyId = 4, SystemId = 2 },
+            new Access { Id = 10, FileName = "1.docx", ColonyId = 4, SystemId = 3 });
+
+            modelBuilder.Entity<Documentation>().HasData(
+            new Access { Id = 1, FileName = "1.docx", ColonyId = 1, SystemId = 1 },
+            new Access { Id = 2, FileName = "1.docx", ColonyId = 1, SystemId = 2 },
+            new Access { Id = 3, FileName = "1.docx", ColonyId = 1, SystemId = 3 },
+            new Access { Id = 4, FileName = "1.docx", ColonyId = 1, SystemId = 4 },
+            new Access { Id = 5, FileName = "1.docx", ColonyId = 2, SystemId = 3 },
+            new Access { Id = 6, FileName = "1.docx", ColonyId = 2, SystemId = 4 },
+            new Access { Id = 7, FileName = "1.docx", ColonyId = 3, SystemId = 1 },
+            new Access { Id = 8, FileName = "1.docx", ColonyId = 3, SystemId = 2 },
+            new Access { Id = 9, FileName = "1.docx", ColonyId = 4, SystemId = 2 },
+            new Access { Id = 10, FileName = "1.docx", ColonyId = 4, SystemId = 3 });
 
 
         }
