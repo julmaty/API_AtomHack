@@ -27,6 +27,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\index-CG72DWTD.js" />
+    <None Include="wwwroot\assets\Inter-Black-PCIGMC9y.woff2" />
+    <None Include="wwwroot\assets\Inter-BlackItalic-C__mpYx1.woff2" />
+    <None Include="wwwroot\assets\Inter-Bold-CQHYVgG_.woff2" />
+    <None Include="wwwroot\assets\Inter-BoldItalic-BZ25GMaH.woff2" />
+    <None Include="wwwroot\assets\Inter-ExtraBold-Da5QcHRB.woff2" />
+    <None Include="wwwroot\assets\Inter-ExtraBoldItalic-D1JMiWfe.woff2" />
+    <None Include="wwwroot\assets\Inter-ExtraLightBETA-dSzjrJSk.woff2" />
+    <None Include="wwwroot\assets\Inter-ExtraLightItalicBETA-BcNczogP.woff2" />
+    <None Include="wwwroot\assets\Inter-Italic-B-9-4fJy.woff2" />
+    <None Include="wwwroot\assets\Inter-LightBETA-DpNixdPo.woff2" />
+    <None Include="wwwroot\assets\Inter-LightItalicBETA-VxBas_3R.woff2" />
+    <None Include="wwwroot\assets\Inter-Medium-D5YUpoRx.woff2" />
+    <None Include="wwwroot\assets\Inter-MediumItalic-YxU2FLh9.woff2" />
+    <None Include="wwwroot\assets\Inter-Regular-6EfshmZx.woff2" />
+    <None Include="wwwroot\assets\Inter-SemiBold-ClSOndc6.woff2" />
+    <None Include="wwwroot\assets\Inter-SemiBoldItalic-C1C-HVnm.woff2" />
+    <None Include="wwwroot\assets\Inter-ThinBETA-De7PdzHo.woff2" />
+    <None Include="wwwroot\assets\Inter-ThinItalicBETA-CSNw4Px2.woff2" />
     <None Include="wwwroot\files\1\1\1\1.docx" />
     <None Include="wwwroot\files\1\1\2\1.docx" />
     <None Include="wwwroot\files\1\1\3\1.docx" />
