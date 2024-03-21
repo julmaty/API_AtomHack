@@ -16,7 +16,7 @@ namespace API_AtomHack.Controllers
             _context = context;
         }
 
-        // GET: api/Messages
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Colony>>> Get()
         {

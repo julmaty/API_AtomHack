@@ -48,16 +48,16 @@ namespace API_AtomHack
             new Access { Id = 10, FileName = "1.docx", ColonyId = 4, SystemId = 3 });
 
             modelBuilder.Entity<Documentation>().HasData(
-            new Access { Id = 1, FileName = "1.docx", ColonyId = 1, SystemId = 1 },
-            new Access { Id = 2, FileName = "1.docx", ColonyId = 1, SystemId = 2 },
-            new Access { Id = 3, FileName = "1.docx", ColonyId = 1, SystemId = 3 },
-            new Access { Id = 4, FileName = "1.docx", ColonyId = 1, SystemId = 4 },
-            new Access { Id = 5, FileName = "1.docx", ColonyId = 2, SystemId = 3 },
-            new Access { Id = 6, FileName = "1.docx", ColonyId = 2, SystemId = 4 },
-            new Access { Id = 7, FileName = "1.docx", ColonyId = 3, SystemId = 1 },
-            new Access { Id = 8, FileName = "1.docx", ColonyId = 3, SystemId = 2 },
-            new Access { Id = 9, FileName = "1.docx", ColonyId = 4, SystemId = 2 },
-            new Access { Id = 10, FileName = "1.docx", ColonyId = 4, SystemId = 3 });
+            new Documentation { Id = 1, FileName = "1.docx", ColonyId = 1, SystemId = 1 },
+            new Documentation { Id = 2, FileName = "1.docx", ColonyId = 1, SystemId = 2 },
+            new Documentation { Id = 3, FileName = "1.docx", ColonyId = 1, SystemId = 3 },
+            new Documentation { Id = 4, FileName = "1.docx", ColonyId = 1, SystemId = 4 },
+            new Documentation { Id = 5, FileName = "1.docx", ColonyId = 2, SystemId = 3 },
+            new Documentation { Id = 6, FileName = "1.docx", ColonyId = 2, SystemId = 4 },
+            new Documentation { Id = 7, FileName = "1.docx", ColonyId = 3, SystemId = 1 },
+            new Documentation { Id = 8, FileName = "1.docx", ColonyId = 3, SystemId = 2 },
+            new Documentation { Id = 9, FileName = "1.docx", ColonyId = 4, SystemId = 2 },
+            new Documentation { Id = 10, FileName = "1.docx", ColonyId = 4, SystemId = 3 });
 
 
         }
