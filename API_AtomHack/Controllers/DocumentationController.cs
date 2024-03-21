@@ -21,6 +21,12 @@ namespace API_AtomHack.Controllers
         {
             return await _context.Documentations.ToListAsync();
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Documentation>>> Get(int ColonyId, int SystemId)
+        {
+            List<Documentation> docs = _context.Documentations.Where(p=> p.ColonyId== ColonyId && p.SystemId==SystemId).ToList();
+            return docs;
+        }
         [HttpPost]
         public async Task<ActionResult> Post(DocumentationView doc)
         {

@@ -34,6 +34,13 @@ namespace API_AtomHack.Controllers
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
 
+            string html = "<div> Поступило обращение от ";
+            html += user.Name;
+            html += "!<br/><br/>";
+            html += apply.Content;
+            html += "<br/><br/>";
+
+
             if (apply.uploads != null)
             {
                 foreach (var formFile in apply.uploads)
@@ -41,6 +48,9 @@ namespace API_AtomHack.Controllers
                     if (formFile.Length > 0)
                     {
                         var name = formFile.FileName;
+                        html += "http://158.160.44.53/files/";
+                        html += name;
+                        html += "<br/><br/>";
                         var filePath = _appEnvironment.WebRootPath + "/files/" + name;
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
@@ -59,7 +69,7 @@ namespace API_AtomHack.Controllers
             var userHistory = new userHistory { Case = 4, messageId=(int)message.Id, UserId=user.Id, DateTime = DateTime.Now };
             _context.userHistories.Add(userHistory);
             await _context.SaveChangesAsync();
-            await _emailService.SendEmailAsync("hste-media@yandex.ru", "Обращение в техподдержку", $"<div> Поступило обращение от {user.Name}!<br/><br/>{apply.Content} </div>");
+            await _emailService.SendEmailAsync("hste-media@yandex.ru", "Обращение в техподдержку", html);
             
             await _context.SaveChangesAsync();
 
