@@ -4,6 +4,6 @@
     {
         public string Content { get; set; }
         public int UserId { get; set; }
-        public IFormFileCollection uploads { get; set; }
+        public IFormFileCollection? uploads { get; set; }
     }
 }
