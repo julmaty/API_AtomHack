@@ -59,7 +59,7 @@ namespace API_AtomHack.Controllers
             var userHistory = new userHistory { Case = 4, messageId=(int)message.Id, UserId=user.Id, DateTime = DateTime.Now };
             _context.userHistories.Add(userHistory);
             await _context.SaveChangesAsync();
-            await _emailService.SendEmailAsync("hste-media-1@yandex.ru", "Обращение в техподдержку", $"<div> Поступило обращение от {user.Name}!<br/><br/>{apply.Content} </div>");
+            await _emailService.SendEmailAsync("hste-media@yandex.ru", "Обращение в техподдержку", $"<div> Поступило обращение от {user.Name}!<br/><br/>{apply.Content} </div>");
             
             await _context.SaveChangesAsync();
 

@@ -24,7 +24,7 @@ namespace QuartzScheduler
             var emailMessage = new MimeMessage();
 
             //emailMessage.From.Add(new MailboxAddress("Администрация сайта", "pravo.demetra@gmail.com"));
-            emailMessage.From.Add(new MailboxAddress("ПомощникиТут.рф", mailSettings["Email"]));
+            emailMessage.From.Add(new MailboxAddress("Чат-бот", mailSettings["Email"]));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
