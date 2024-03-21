@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API_AtomHack.Model
 {
-    public class File
+    public class File1
     {
         [Key] public int Id { get; set; }
         public string Name { get; set; }

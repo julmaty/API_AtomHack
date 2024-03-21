@@ -27,7 +27,7 @@ namespace API_AtomHack.Controllers
 
         // GET: api/Messages
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Message>>> GetMessages()
+        public async Task<ActionResult<IEnumerable<Message1>>> GetMessages()
         {
             return await _context.Messages.ToListAsync();
         }
@@ -48,14 +48,14 @@ namespace API_AtomHack.Controllers
                     requestMessage = (string)request.requestMessage
                 };
 
-                var response = await client.PostAsJsonAsync("http://158.160.44.53/getResponseFromTheModel", obj);
+                var response = await client.PostAsJsonAsync("http://158.160.44.53:8080/getResponseFromTheModel", obj);
 
                 responseString = await response.Content.ReadAsStringAsync();
                 responseString = System.Text.RegularExpressions.Regex.Unescape(responseString);
 
             }
             var user = await _context.Users.FindAsync(request.UserId);
-            var message = new Message { };
+            var message = new Message1 { };
             message.Content = request.requestMessage;
             message.DataCreated = DateTime.Now;
             message.Response = responseString;

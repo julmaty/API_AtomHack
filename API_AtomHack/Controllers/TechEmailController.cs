@@ -26,7 +26,7 @@ namespace API_AtomHack.Controllers
         public async Task<ActionResult> Post(TechApplication apply)
         {
             var user = await _context.Users.FindAsync(apply.UserId);
-            var message = new Message { };
+            Message1 message = new Message1 { };
             message.Content = apply.Content; ;
             message.DataCreated = DateTime.Now;
             message.AI = false;
@@ -46,7 +46,7 @@ namespace API_AtomHack.Controllers
                         {
                             await formFile.CopyToAsync(fileStream);
                         }
-                        Model.File file = new Model.File();
+                        Model.File1 file = new Model.File1();
                         file.messageId = (int)message.Id;
                         file.Name = filePath;
                         await _context.Files.AddAsync(file);

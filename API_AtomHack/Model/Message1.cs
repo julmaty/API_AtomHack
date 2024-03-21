@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API_AtomHack.Model
 {
-    public class Message
+    public class Message1
     {
         [Key] public int? Id { get; set; }
         public string? Content { get; set; }
