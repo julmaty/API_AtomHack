@@ -15,8 +15,7 @@ namespace API_AtomHack.Controllers
         {
             _context = context;
         }
-
-        // GET: api/Messages
+        //список систем
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Model.System>>> Get()
         {

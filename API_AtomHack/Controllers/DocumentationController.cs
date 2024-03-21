@@ -31,6 +31,7 @@ namespace API_AtomHack.Controllers
         public async Task<ActionResult> Post(DocumentationView doc)
         {
             var user = await _context.Users.FindAsync(doc.UserId);
+            //добавляем запись в историю взаимодействий;
             var userHistory = new userHistory { Case = 2, ColonyId = doc.ColonyId, SystemId=doc.SystemId, UserId = user.Id, DateTime = DateTime.Now };
             _context.userHistories.Add(userHistory);
 

@@ -25,7 +25,7 @@ namespace API_AtomHack.Controllers
             _context = context;
         }
 
-        // GET: api/Messages
+        // Список сообщений
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Message1>>> GetMessages()
         {
@@ -39,6 +39,7 @@ namespace API_AtomHack.Controllers
         {
             
             string responseString;
+            //обращаемся к нейросети
 
             using (var client = new HttpClient())
 
@@ -54,6 +55,7 @@ namespace API_AtomHack.Controllers
                 responseString = System.Text.RegularExpressions.Regex.Unescape(responseString);
 
             }
+            //добавление сообщения в базу данных
             var user = await _context.Users.FindAsync(request.UserId);
             var message = new Message1 { };
             message.Content = request.requestMessage;
@@ -63,6 +65,7 @@ namespace API_AtomHack.Controllers
             message.UserId = user.Id;
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
+            //добавляем запись в историю взаимодействий;
             var userHistory = new userHistory { Case = 5, messageId= (int)message.Id, UserId=user.Id, DateTime=DateTime.Now  };
             _context.userHistories.Add(userHistory);
 
