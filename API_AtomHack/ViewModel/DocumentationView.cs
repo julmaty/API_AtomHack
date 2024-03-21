@@ -1,6 +1,6 @@
 ﻿namespace API_AtomHack.ViewModel
 {
-    public class Documentation
+    public class DocumentationView
     {
         public int ColonyId { get; set; }
         public int SystemId { get; set; }
