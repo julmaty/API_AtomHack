@@ -30,10 +30,13 @@ namespace API_AtomHack.Controllers
                 var userHistory = new userHistory { Case = 1, UserId = user_new.Id, DateTime = DateTime.Now };
                 _context.userHistories.Add(userHistory);
                 await _context.SaveChangesAsync();
+                //возвращаем id нового пользователя
                 return Ok(user_new.Id);
             }
+            //добавляем в историю взаимодействий
             var userHistorydb = new userHistory { Case = 1, UserId = user_db.Id, DateTime = DateTime.Now };
             _context.userHistories.Add(userHistorydb);
+            //возвращаем id имеющегося пользователя
             return Ok(user_db.Id);
 
         }
